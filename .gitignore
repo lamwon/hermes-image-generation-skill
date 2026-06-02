@@ -1,0 +1,16 @@
+# 输出图片
+output.png
+output_*.png
+
+# 配置
+.image_workflow.json
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.egg-info/
+
+# 系统
+.DS_Store
+Thumbs.db

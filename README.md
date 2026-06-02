@@ -12,6 +12,7 @@
 <p align="center">
   <img src="https://img.shields.io/badge/license-MIT-green" alt="MIT License" />
   <img src="https://img.shields.io/badge/python-3.8+-blue" alt="Python 3.8+" />
+  <img src="https://img.shields.io/github/stars/lamwon/hermes-image-generation-skill?style=flat&color=yellow" alt="Stars" />
   <img src="https://img.shields.io/badge/Hermes%20Agent-ready-orange" alt="Hermes Agent Ready" />
   <img src="https://img.shields.io/badge/DeepSeek-V4%20Flash-brightgreen" alt="DeepSeek V4 Flash" />
   <img src="https://img.shields.io/badge/Flux-Schnell-ff69b4" alt="Flux Schnell" />
@@ -113,16 +114,20 @@ hermes skills install lamwon/hermes-image-generation-skill
 
 ### 方式二：作为独立 Python 脚本
 
-```python
-from image_workflow import generate_flux, call_deepseek
-
-# DeepSeek 自动生成优化后的提示词
-prompt = call_deepseek("水墨山水画，要有孤舟和远山")
-
-# Flux 出图
-result = generate_flux(prompt, "你的SiliconFlowKey")
-print(result)  # [OK] Saved: output.png
+```bash
+python image_workflow.py "水墨山水画，要有孤舟和远山" -g -o my-art.png
 ```
+
+脚本支持多种参数：
+
+| 参数 | 说明 |
+|------|------|
+| `<prompt>` | 中文描述需求 |
+| `--generate` / `-g` | 生成图片（默认只出提示词） |
+| `-o <file>` | 指定输出路径 |
+| `--batch <n>` | 批量生成 n 张 |
+| `--size <ratio>` | 尺寸比例，如 `16:9` `9:16` `1:1` |
+| `--setup` | 配置 SiliconFlow Key |
 
 ---
 
@@ -130,7 +135,7 @@ print(result)  # [OK] Saved: output.png
 
 | 方案 | 成本 | 质量 | 速度 | 国内可用 | 需要显卡 |
 |------|------|------|------|---------|---------|
-| **本方案** |   **免费/极低** | ⭐⭐⭐⭐ | ⚡ 10-30s | ✅ | ❌ |
+| **本方案** |   **免费/极低** | ⭐⭐⭐½ | ⚡ 10-30s | ✅ | ❌ |
 | Midjourney |   $10-60/月 | ⭐⭐⭐⭐⭐ | ⚡ 30-60s | ❌（需代理） | ❌ |
 | DALL-E 3 |   $0.04/张 | ⭐⭐⭐⭐ | ⚡ 5-15s | ❌（需代理） | ❌ |
 | SD WebUI 本地 |   免费 | ⭐⭐⭐ |  慢 | ✅ | ✅ **需要** |
