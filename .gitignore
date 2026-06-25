@@ -1,3 +1,8 @@
+# Environment files (API keys, secrets)
+.env
+.env.local
+.env.*.local
+
 # 输出图片
 output.png
 output_*.png
